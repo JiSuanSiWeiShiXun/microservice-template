@@ -1,0 +1,80 @@
+# Proto 编译配置文件
+# 支持不同环境和项目的编译配置
+
+# 基础配置
+[default]
+proto_dir = "api"
+output_dir = "gen"
+proto_path = "api"
+
+# Go 相关配置
+[go]
+# Go 输出选项
+go_out = "gen"
+go_opt = "paths=source_relative"
+
+# gRPC 输出选项  
+grpc_out = "gen"
+grpc_opt = "paths=source_relative"
+
+# 包路径映射
+[go.package_mapping]
+# 可以在这里定义包路径映射
+# "proto_package" = "go_package_path"
+
+# 开发环境配置
+[development]
+# 开发时可能需要的额外选项
+validate_imports = true
+generate_mocks = false
+format_output = true
+
+# 生产环境配置
+[production]
+# 生产环境的优化选项
+optimize_for = "SPEED"
+generate_docs = true
+validate_output = true
+
+# 插件配置
+[plugins]
+# 启用的 protoc 插件
+enabled = [
+    "go",
+    "go-grpc"
+]
+
+# 可选插件配置
+[plugins.optional]
+# "grpc-gateway" = { enabled = false, out = "gen/gateway" }
+# "openapi" = { enabled = false, out = "docs/api" }
+# "validate" = { enabled = false, out = "gen/validate" }
+
+# 文件模式配置
+[patterns]
+# 包含的文件模式
+include = ["**/*.proto"]
+
+# 排除的文件模式  
+exclude = [
+    "**/test/**",
+    "**/*_test.proto",
+    "**/deprecated/**"
+]
+
+# 自定义命令配置
+[commands]
+# 预处理命令（编译前执行）
+pre_build = []
+
+# 后处理命令（编译后执行）
+post_build = [
+    "go fmt ./gen/...",
+    "goimports -w ./gen/"
+]
+
+# 验证命令
+validate = [
+    "go build ./gen/...",
+    "go vet ./gen/..."
+]

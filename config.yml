@@ -1,0 +1,9 @@
+log:
+  level: debug
+
+db:
+  host: localhost
+  port: 27017
+  user: admin
+  pwd: password
+  database: mydb

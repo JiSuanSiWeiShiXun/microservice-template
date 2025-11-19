@@ -1,0 +1,80 @@
+# 多语言代码生成配置
+version: "1.0"
+
+# 全局配置
+global:
+  proto_dir: "api"
+  output_base: "gen"
+  proto_paths:
+    - "api"
+
+# 语言配置
+languages:
+  # Go 语言
+  go:
+    enabled: true
+    output_dir: "gen/go"
+    package_prefix: "impirrot/gen/go"
+    paths: "source_relative"
+    
+  # Python 语言
+  python:
+    enabled: true
+    output_dir: "gen/python"
+    pyi_out: true
+    
+  # TypeScript 语言
+  typescript:
+    enabled: true
+    output_dir: "gen/typescript"
+    
+  # Java 语言
+  java:
+    enabled: false
+    output_dir: "gen/java"
+    package: "com.impirrot"
+    
+  # C++ 语言
+  cpp:
+    enabled: false
+    output_dir: "gen/cpp"
+    
+  # Rust 语言
+  rust:
+    enabled: false
+    output_dir: "gen/rust"
+    
+  # Swift 语言
+  swift:
+    enabled: false
+    output_dir: "gen/swift"
+    
+  # Kotlin 语言
+  kotlin:
+    enabled: false
+    output_dir: "gen/kotlin"
+    
+  # Dart 语言
+  dart:
+    enabled: false
+    output_dir: "gen/dart"
+
+# 自定义插件
+plugins:
+  openapi:
+    enabled: false
+    output_dir: "gen/openapi"
+  doc:
+    enabled: false
+    output_dir: "docs/api"
+    format: "html"
+
+# 后处理命令
+post_process:
+  go:
+    - "gofmt -w gen/go"
+    - "goimports -w gen/go"
+  python:
+    - "black gen/python"
+  typescript:
+    - "prettier --write gen/typescript"

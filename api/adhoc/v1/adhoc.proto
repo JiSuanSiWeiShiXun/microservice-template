@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package adhoc.v1;
+
+// 多语言支持：Go 代码生成到 gen/go 目录
+option go_package = "impirrot/gen/go/adhoc/v1;adhocv1";
+
+// import "google/api/http.proto";
+import "common/common.proto";
+
+service AdhocService {
+    rpc Hello(HelloRequest) returns (HelloResponse) {
+        // option (google.api.http) = {
+        //     post: "/v1/hello"
+        //     body: "*"
+        // };
+    };
+
+    rpc Goodbye(GoodbyeRequest) returns (GoodbyeResponse);
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloResponse {
+    common.CommonResponse response = 1;
+}
+
+message GoodbyeRequest {
+  string name = 1;        // 用户名称
+}
+
+message GoodbyeResponse {
+  common.CommonResponse response = 1;  // 通用响应
+  string farewell = 2;                  // 告别语
+}

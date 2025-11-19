@@ -1,0 +1,15 @@
+syntax="proto3";
+package common;
+
+// 多语言支持：Go 代码生成到 gen/go 目录
+option go_package = "impirrot/gen/go/common;common";
+
+enum ErrorCode {
+  UNKNOWN = 0;            // 未知错误
+  INVALID_ARGUMENT = 1;   // 无效参数
+  NOT_FOUND = 2;          // 未找到
+  ALREADY_EXISTS = 3;     // 已存在
+  PERMISSION_DENIED = 4;  // 权限拒绝
+  UNAUTHENTICATED = 5;    // 未认证
+  INTERNAL_ERROR = 6;     // 内部错误
+}

@@ -1,0 +1,139 @@
+name: Proto Compilation
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'api/**/*.proto'
+      - 'scripts/build-proto.sh'
+      - 'scripts/ci-build-proto.sh'
+      - 'Makefile'
+      - '.github/workflows/proto.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'api/**/*.proto'
+      - 'scripts/build-proto.sh'
+      - 'scripts/ci-build-proto.sh'
+      - 'Makefile'
+
+jobs:
+  proto-compile:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+        
+    - name: Install Protocol Buffers
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y protobuf-compiler
+        protoc --version
+        
+    - name: Cache Go modules
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/go-build
+          ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
+          
+    - name: Install Go tools
+      run: |
+        go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+        go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+        
+    - name: Compile Proto files
+      run: |
+        CI_MODE=true FAIL_ON_DIFF=true ./scripts/ci-build-proto.sh
+        
+    - name: Check for uncommitted changes
+      run: |
+        git diff --exit-code gen/ || {
+          echo "Generated files have uncommitted changes!"
+          echo "Please run 'make build' and commit the changes."
+          exit 1
+        }
+        
+    - name: Upload generated files
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: generated-proto-files
+        path: gen/
+        retention-days: 7
+
+  proto-lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install buf
+      run: |
+        # Install buf for proto linting
+        curl -sSL "https://github.com/bufbuild/buf/releases/latest/download/buf-$(uname -s)-$(uname -m)" -o "/usr/local/bin/buf"
+        chmod +x "/usr/local/bin/buf"
+        
+    - name: Create buf config
+      run: |
+        cat > buf.yaml << EOF
+        version: v1
+        breaking:
+          use:
+            - FILE
+        lint:
+          use:
+            - DEFAULT
+        EOF
+        
+    - name: Lint proto files
+      run: |
+        buf lint api/
+
+  proto-docs:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+        
+    - name: Install Protocol Buffers
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y protobuf-compiler
+        
+    - name: Install protoc-gen-doc
+      run: |
+        go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
+        
+    - name: Generate documentation
+      run: |
+        mkdir -p docs/api
+        find api -name "*.proto" -exec protoc \
+          --proto_path=api \
+          --doc_out=docs/api \
+          --doc_opt=html,index.html \
+          {} +
+          
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/api
+        destination_dir: api-docs
