@@ -12,7 +12,7 @@ import (
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
-	common "youlingserv/gen/go/common"
+	_ "youlingserv/gen/go/common"
 )
 
 const (
@@ -68,7 +68,7 @@ func (x *HelloRequest) GetName() string {
 
 type HelloResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Response      *common.CommonResponse `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	Response      string                 `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -103,11 +103,11 @@ func (*HelloResponse) Descriptor() ([]byte, []int) {
 	return file_adhoc_v1_adhoc_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *HelloResponse) GetResponse() *common.CommonResponse {
+func (x *HelloResponse) GetResponse() string {
 	if x != nil {
 		return x.Response
 	}
-	return nil
+	return ""
 }
 
 type GoodbyeRequest struct {
@@ -156,8 +156,7 @@ func (x *GoodbyeRequest) GetName() string {
 
 type GoodbyeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Response      *common.CommonResponse `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"` // 通用响应
-	Farewell      string                 `protobuf:"bytes,2,opt,name=farewell,proto3" json:"farewell,omitempty"` // 告别语
+	Farewell      string                 `protobuf:"bytes,1,opt,name=farewell,proto3" json:"farewell,omitempty"` // 告别语
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -192,13 +191,6 @@ func (*GoodbyeResponse) Descriptor() ([]byte, []int) {
 	return file_adhoc_v1_adhoc_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GoodbyeResponse) GetResponse() *common.CommonResponse {
-	if x != nil {
-		return x.Response
-	}
-	return nil
-}
-
 func (x *GoodbyeResponse) GetFarewell() string {
 	if x != nil {
 		return x.Farewell
@@ -212,14 +204,13 @@ const file_adhoc_v1_adhoc_proto_rawDesc = "" +
 	"\n" +
 	"\x14adhoc/v1/adhoc.proto\x12\badhoc.v1\x1a\x13common/common.proto\"\"\n" +
 	"\fHelloRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\"C\n" +
-	"\rHelloResponse\x122\n" +
-	"\bresponse\x18\x01 \x01(\v2\x16.common.CommonResponseR\bresponse\"$\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\"+\n" +
+	"\rHelloResponse\x12\x1a\n" +
+	"\bresponse\x18\x01 \x01(\tR\bresponse\"$\n" +
 	"\x0eGoodbyeRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\"a\n" +
-	"\x0fGoodbyeResponse\x122\n" +
-	"\bresponse\x18\x01 \x01(\v2\x16.common.CommonResponseR\bresponse\x12\x1a\n" +
-	"\bfarewell\x18\x02 \x01(\tR\bfarewell2\x8a\x01\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\"-\n" +
+	"\x0fGoodbyeResponse\x12\x1a\n" +
+	"\bfarewell\x18\x01 \x01(\tR\bfarewell2\x8a\x01\n" +
 	"\fAdhocService\x12:\n" +
 	"\x05Hello\x12\x16.adhoc.v1.HelloRequest\x1a\x17.adhoc.v1.HelloResponse\"\x00\x12>\n" +
 	"\aGoodbye\x12\x18.adhoc.v1.GoodbyeRequest\x1a\x19.adhoc.v1.GoodbyeResponseB%Z#youlingserv/gen/go/adhoc/v1;adhocv1b\x06proto3"
@@ -238,24 +229,21 @@ func file_adhoc_v1_adhoc_proto_rawDescGZIP() []byte {
 
 var file_adhoc_v1_adhoc_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_adhoc_v1_adhoc_proto_goTypes = []any{
-	(*HelloRequest)(nil),          // 0: adhoc.v1.HelloRequest
-	(*HelloResponse)(nil),         // 1: adhoc.v1.HelloResponse
-	(*GoodbyeRequest)(nil),        // 2: adhoc.v1.GoodbyeRequest
-	(*GoodbyeResponse)(nil),       // 3: adhoc.v1.GoodbyeResponse
-	(*common.CommonResponse)(nil), // 4: common.CommonResponse
+	(*HelloRequest)(nil),    // 0: adhoc.v1.HelloRequest
+	(*HelloResponse)(nil),   // 1: adhoc.v1.HelloResponse
+	(*GoodbyeRequest)(nil),  // 2: adhoc.v1.GoodbyeRequest
+	(*GoodbyeResponse)(nil), // 3: adhoc.v1.GoodbyeResponse
 }
 var file_adhoc_v1_adhoc_proto_depIdxs = []int32{
-	4, // 0: adhoc.v1.HelloResponse.response:type_name -> common.CommonResponse
-	4, // 1: adhoc.v1.GoodbyeResponse.response:type_name -> common.CommonResponse
-	0, // 2: adhoc.v1.AdhocService.Hello:input_type -> adhoc.v1.HelloRequest
-	2, // 3: adhoc.v1.AdhocService.Goodbye:input_type -> adhoc.v1.GoodbyeRequest
-	1, // 4: adhoc.v1.AdhocService.Hello:output_type -> adhoc.v1.HelloResponse
-	3, // 5: adhoc.v1.AdhocService.Goodbye:output_type -> adhoc.v1.GoodbyeResponse
-	4, // [4:6] is the sub-list for method output_type
-	2, // [2:4] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0, // 0: adhoc.v1.AdhocService.Hello:input_type -> adhoc.v1.HelloRequest
+	2, // 1: adhoc.v1.AdhocService.Goodbye:input_type -> adhoc.v1.GoodbyeRequest
+	1, // 2: adhoc.v1.AdhocService.Hello:output_type -> adhoc.v1.HelloResponse
+	3, // 3: adhoc.v1.AdhocService.Goodbye:output_type -> adhoc.v1.GoodbyeResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_adhoc_v1_adhoc_proto_init() }

@@ -24,7 +24,7 @@ message HelloRequest {
 }
 
 message HelloResponse {
-    common.CommonResponse response = 1;
+    string response = 1;
 }
 
 message GoodbyeRequest {
@@ -32,6 +32,5 @@ message GoodbyeRequest {
 }
 
 message GoodbyeResponse {
-  common.CommonResponse response = 1;  // 通用响应
-  string farewell = 2;                  // 告别语
+  string farewell = 1;                  // 告别语
 }
