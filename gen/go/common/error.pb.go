@@ -94,7 +94,7 @@ const file_common_error_proto_rawDesc = "" +
 	"\x0eALREADY_EXISTS\x10\x03\x12\x15\n" +
 	"\x11PERMISSION_DENIED\x10\x04\x12\x13\n" +
 	"\x0fUNAUTHENTICATED\x10\x05\x12\x12\n" +
-	"\x0eINTERNAL_ERROR\x10\x06B\x1fZ\x1dimpirrot/gen/go/common;commonb\x06proto3"
+	"\x0eINTERNAL_ERROR\x10\x06B\"Z youlingserv/gen/go/common;commonb\x06proto3"
 
 var (
 	file_common_error_proto_rawDescOnce sync.Once

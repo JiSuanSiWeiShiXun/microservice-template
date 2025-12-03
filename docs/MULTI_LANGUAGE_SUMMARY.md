@@ -3,7 +3,7 @@
 ## 📊 架构概览
 
 ```
-impirrot/
+youlingserv/
 ├── api/                           # Proto 定义文件（单一数据源）
 │   ├── common/
 │   └── adhoc/v1/
@@ -74,7 +74,7 @@ gen/go/
 **特点**:
 - 完全保留 proto 的目录结构
 - 使用 `source_relative` 路径
-- 包路径: `impirrot/gen/go/xxx`
+- 包路径: `youlingserv/gen/go/xxx`
 
 ### Python 代码结构
 ```
@@ -188,26 +188,26 @@ languages:
 ### Go
 ```bash
 # 作为 Go module
-go get github.com/impirrot/proto/gen/go
+go get github.com/youlingserv/proto/gen/go
 ```
 
 ### Python
 ```bash
 # 作为 Python package
-pip install impirrot-proto
+pip install youlingserv-proto
 ```
 
 ### TypeScript
 ```bash
 # 作为 npm package
-npm install @impirrot/proto
+npm install @youlingserv/proto
 ```
 
 ### Java
 ```xml
 <!-- Maven -->
 <dependency>
-    <groupId>com.impirrot</groupId>
+    <groupId>com.youlingserv</groupId>
     <artifactId>proto-gen</artifactId>
     <version>1.0.0</version>
 </dependency>

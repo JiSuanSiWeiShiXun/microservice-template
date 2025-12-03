@@ -7,10 +7,10 @@ import (
 	"github.com/google/wire"
 	"gorm.io/gorm"
 
-	"impirrot/internal/api/biz"
-	"impirrot/internal/api/dal"
-	"impirrot/internal/api/handler"
-	"impirrot/internal/shared/auth"
+	"youlingserv/internal/api/biz"
+	"youlingserv/internal/api/dal"
+	"youlingserv/internal/api/handler"
+	"youlingserv/internal/shared/auth"
 )
 
 // InitializeAPIService 初始化 API 服务的所有依赖

@@ -1,4 +1,4 @@
-# Impirrot
+# youlingserv
 
 一个基于 Go 的微服务项目，采用 Hertz（HTTP）+ gRPC 混合架构。
 
@@ -15,7 +15,7 @@
 ## 🏗️ 目录结构
 
 ```
-impirrot/
+youlingserv/
 ├── api/                          # Proto 定义
 │   ├── adhoc/
 │   │   └── v1/
@@ -202,7 +202,7 @@ db:
   port: 3306
   user: root
   pwd: password
-  database: impirrot
+  database: youlingserv
 ```
 
 ## 📝 待办事项

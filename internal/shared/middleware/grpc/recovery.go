@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"impirrot/pkg/log"
+	"youlingserv/pkg/log"
 )
 
 func RecoveryInterceptor() grpc.UnaryServerInterceptor {

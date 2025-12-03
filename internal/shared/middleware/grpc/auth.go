@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"impirrot/internal/shared/auth"
+	"youlingserv/internal/shared/auth"
 )
 
 func AuthInterceptor(checker *auth.PermissionChecker) grpc.UnaryServerInterceptor {

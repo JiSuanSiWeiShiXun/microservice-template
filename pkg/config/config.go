@@ -11,7 +11,7 @@ import (
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 
-	"impirrot/pkg/log"
+	"youlingserv/pkg/log"
 )
 
 type (

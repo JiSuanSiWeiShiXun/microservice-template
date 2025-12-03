@@ -3,7 +3,7 @@ syntax = "proto3";
 package adhoc.v1;
 
 // 多语言支持：Go 代码生成到 gen/go 目录
-option go_package = "impirrot/gen/go/adhoc/v1;adhocv1";
+option go_package = "youlingserv/gen/go/adhoc/v1;adhocv1";
 
 // import "google/api/http.proto";
 import "common/common.proto";

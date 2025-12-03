@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"impirrot/internal/api/dal"
-	"impirrot/pkg/log"
+	"youlingserv/internal/api/dal"
+	"youlingserv/pkg/log"
 )
 
 type HelloService struct {
@@ -23,7 +23,7 @@ func (s *HelloService) SayHello(ctx context.Context, name, userID string) (strin
 
 	user, err := s.userDAL.GetUserByUsername(ctx, name)
 	if err != nil {
-		return fmt.Sprintf("Hello, %s! Welcome to Impirrot!", name), nil
+		return fmt.Sprintf("Hello, %s! Welcome to youlingserv!", name), nil
 	}
 
 	return fmt.Sprintf("Hello, %s! Your email is %s", user.Username, user.Email), nil

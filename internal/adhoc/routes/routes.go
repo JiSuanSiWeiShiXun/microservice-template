@@ -3,8 +3,8 @@ package routes
 import (
 	"google.golang.org/grpc"
 
-	adhocv1 "impirrot/gen/go/adhoc/v1"
-	"impirrot/internal/adhoc/service"
+	adhocv1 "youlingserv/gen/go/adhoc/v1"
+	"youlingserv/internal/adhoc/service"
 )
 
 // RegisterAdhocRoutes 注册 Adhoc gRPC 服务

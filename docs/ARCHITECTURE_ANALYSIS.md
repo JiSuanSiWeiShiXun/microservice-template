@@ -148,10 +148,10 @@ package service
 import (
     "context"
     
-    "impirrot/internal/biz/domain"
-    "impirrot/internal/biz/repository"
-    "impirrot/internal/model/adhoc/v1"
-    "impirrot/internal/model/common"
+    "youlingserv/internal/biz/domain"
+    "youlingserv/internal/biz/repository"
+    "youlingserv/internal/model/adhoc/v1"
+    "youlingserv/internal/model/common"
 )
 
 // AdhocService 核心业务逻辑（HTTP 和 RPC 共享）
@@ -215,7 +215,7 @@ package repository
 
 import (
     "context"
-    "impirrot/internal/biz/domain"
+    "youlingserv/internal/biz/domain"
 )
 
 // UserRepository 用户仓储接口
@@ -283,8 +283,8 @@ import (
     "context"
     "database/sql"
     
-    "impirrot/internal/biz/domain"
-    "impirrot/internal/biz/repository"
+    "youlingserv/internal/biz/domain"
+    "youlingserv/internal/biz/repository"
 )
 
 type userRepositoryImpl struct {
@@ -345,8 +345,8 @@ import (
     
     "github.com/redis/go-redis/v9"
     
-    "impirrot/internal/biz/domain"
-    "impirrot/internal/biz/repository"
+    "youlingserv/internal/biz/domain"
+    "youlingserv/internal/biz/repository"
 )
 
 type cacheRepositoryImpl struct {
@@ -396,8 +396,8 @@ import (
     "github.com/cloudwego/hertz/pkg/app"
     "github.com/cloudwego/hertz/pkg/protocol/consts"
     
-    "impirrot/internal/biz/service"
-    "impirrot/internal/dto/http"
+    "youlingserv/internal/biz/service"
+    "youlingserv/internal/dto/http"
 )
 
 // AdhocHTTPHandler HTTP 适配器（仅负责协议转换）
@@ -483,9 +483,9 @@ package handler
 import (
     "context"
     
-    "impirrot/internal/biz/service"
-    "impirrot/internal/model/adhoc/v1"
-    "impirrot/internal/model/common"
+    "youlingserv/internal/biz/service"
+    "youlingserv/internal/model/adhoc/v1"
+    "youlingserv/internal/model/common"
 )
 
 // AdhocRPCHandler RPC 适配器（仅负责协议转换）
@@ -535,11 +535,11 @@ import (
     "github.com/google/wire"
     "github.com/redis/go-redis/v9"
     
-    "impirrot/internal/adapter/http/handler"
-    "impirrot/internal/adapter/rpc/handler"
-    "impirrot/internal/biz/service"
-    "impirrot/internal/dal/cache"
-    "impirrot/internal/dal/db"
+    "youlingserv/internal/adapter/http/handler"
+    "youlingserv/internal/adapter/rpc/handler"
+    "youlingserv/internal/biz/service"
+    "youlingserv/internal/dal/cache"
+    "youlingserv/internal/dal/db"
 )
 
 // ProviderSet 依赖提供者集合

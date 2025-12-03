@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	adhocv1 "impirrot/gen/go/adhoc/v1"
+	adhocv1 "youlingserv/gen/go/adhoc/v1"
 )
 
 // AdhocServiceInterface Adhoc 服务接口

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"impirrot/internal/api/biz"
-	"impirrot/internal/shared/model"
+	"youlingserv/internal/api/biz"
+	"youlingserv/internal/shared/model"
 )
 
 // MockUserDAL 模拟 UserDAL
@@ -74,7 +74,7 @@ func TestHelloService_SayHello_UserNotFound(t *testing.T) {
 
 	// 验证结果
 	assert.NoError(t, err)
-	assert.Equal(t, "Hello, unknown! Welcome to Impirrot!", result)
+	assert.Equal(t, "Hello, unknown! Welcome to youlingserv!", result)
 
 	// 验证 mock 被调用
 	mockDAL.AssertExpectations(t)

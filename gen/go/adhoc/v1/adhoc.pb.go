@@ -9,10 +9,10 @@ package adhocv1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	common "impirrot/gen/go/common"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+	common "youlingserv/gen/go/common"
 )
 
 const (
@@ -222,7 +222,7 @@ const file_adhoc_v1_adhoc_proto_rawDesc = "" +
 	"\bfarewell\x18\x02 \x01(\tR\bfarewell2\x8a\x01\n" +
 	"\fAdhocService\x12:\n" +
 	"\x05Hello\x12\x16.adhoc.v1.HelloRequest\x1a\x17.adhoc.v1.HelloResponse\"\x00\x12>\n" +
-	"\aGoodbye\x12\x18.adhoc.v1.GoodbyeRequest\x1a\x19.adhoc.v1.GoodbyeResponseB\"Z impirrot/gen/go/adhoc/v1;adhocv1b\x06proto3"
+	"\aGoodbye\x12\x18.adhoc.v1.GoodbyeRequest\x1a\x19.adhoc.v1.GoodbyeResponseB%Z#youlingserv/gen/go/adhoc/v1;adhocv1b\x06proto3"
 
 var (
 	file_adhoc_v1_adhoc_proto_rawDescOnce sync.Once

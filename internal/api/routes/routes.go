@@ -3,7 +3,7 @@ package routes
 import (
 	"github.com/cloudwego/hertz/pkg/app/server"
 
-	"impirrot/internal/api/handler"
+	"youlingserv/internal/api/handler"
 )
 
 // RegisterAPIRoutes 注册 API 路由

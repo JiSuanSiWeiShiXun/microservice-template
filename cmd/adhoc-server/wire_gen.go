@@ -7,11 +7,12 @@
 package main
 
 import (
+	"youlingserv/internal/adhoc/biz"
+	"youlingserv/internal/adhoc/dal"
+	"youlingserv/internal/adhoc/service"
+	"youlingserv/internal/shared/auth"
+
 	"gorm.io/gorm"
-	"impirrot/internal/adhoc/biz"
-	"impirrot/internal/adhoc/dal"
-	"impirrot/internal/adhoc/service"
-	"impirrot/internal/shared/auth"
 )
 
 // Injectors from wire.go:

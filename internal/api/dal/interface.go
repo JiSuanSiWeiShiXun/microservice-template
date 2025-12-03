@@ -3,7 +3,7 @@ package dal
 import (
 	"context"
 
-	"impirrot/internal/shared/model"
+	"youlingserv/internal/shared/model"
 )
 
 // UserDALInterface 用户数据访问层接口

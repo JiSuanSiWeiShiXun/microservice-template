@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"impirrot/internal/adhoc/dal"
-	"impirrot/pkg/log"
+	"youlingserv/internal/adhoc/dal"
+	"youlingserv/pkg/log"
 )
 
 type AdhocBiz struct {

@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	adhocv1 "impirrot/gen/go/adhoc/v1"
-	commonpb "impirrot/gen/go/common"
-	"impirrot/internal/adhoc/biz"
-	"impirrot/pkg/log"
+	adhocv1 "youlingserv/gen/go/adhoc/v1"
+	commonpb "youlingserv/gen/go/common"
+	"youlingserv/internal/adhoc/biz"
+	"youlingserv/pkg/log"
 )
 
 type AdhocServiceImpl struct {

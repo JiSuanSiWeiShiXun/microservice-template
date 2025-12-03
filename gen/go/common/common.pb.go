@@ -140,7 +140,7 @@ const file_common_common_proto_rawDesc = "" +
 	"\n" +
 	"StatusCode\x12\v\n" +
 	"\aSUCCESS\x10\x00\x12\t\n" +
-	"\x05ERROR\x10\x01B\x1fZ\x1dimpirrot/gen/go/common;commonb\x06proto3"
+	"\x05ERROR\x10\x01B\"Z youlingserv/gen/go/common;commonb\x06proto3"
 
 var (
 	file_common_common_proto_rawDescOnce sync.Once

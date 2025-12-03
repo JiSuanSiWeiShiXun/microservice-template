@@ -14,7 +14,7 @@ languages:
   go:
     enabled: true
     output_dir: "gen/go"
-    package_prefix: "impirrot/gen/go"
+    package_prefix: "youlingserv/gen/go"
     paths: "source_relative"
     
   # Python 语言
@@ -32,7 +32,7 @@ languages:
   java:
     enabled: false
     output_dir: "gen/java"
-    package: "com.impirrot"
+    package: "com.youlingserv"
     
   # C++ 语言
   cpp:

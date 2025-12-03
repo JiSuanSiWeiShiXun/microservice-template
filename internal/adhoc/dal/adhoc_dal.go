@@ -6,8 +6,8 @@ import (
 
 	"gorm.io/gorm"
 
-	"impirrot/internal/adhoc/dal/model"
-	"impirrot/pkg/log"
+	"youlingserv/internal/adhoc/dal/model"
+	"youlingserv/pkg/log"
 )
 
 type AdhocDAL struct {

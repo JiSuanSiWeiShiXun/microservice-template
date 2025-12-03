@@ -7,10 +7,10 @@ import (
 	"github.com/google/wire"
 	"gorm.io/gorm"
 
-	"impirrot/internal/adhoc/biz"
-	"impirrot/internal/adhoc/dal"
-	"impirrot/internal/adhoc/service"
-	"impirrot/internal/shared/auth"
+	"youlingserv/internal/adhoc/biz"
+	"youlingserv/internal/adhoc/dal"
+	"youlingserv/internal/adhoc/service"
+	"youlingserv/internal/shared/auth"
 )
 
 // InitializeAdhocService 初始化 Adhoc 服务的所有依赖

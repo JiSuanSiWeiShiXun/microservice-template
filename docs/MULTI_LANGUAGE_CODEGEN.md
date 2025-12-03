@@ -24,7 +24,7 @@ gen/
 │           └── adhoc_pb2_grpc.py
 ├── java/                  # Java 语言生成代码
 │   └── com/
-│       └── impirrot/
+│       └── youlingserv/
 │           ├── common/
 │           │   ├── Common.java
 │           │   └── Error.java
@@ -62,7 +62,7 @@ gen/
 │   └── adhoc/
 ├── kotlin/                # Kotlin 语言生成代码（Android）
 │   └── com/
-│       └── impirrot/
+│       └── youlingserv/
 └── dart/                  # Dart 语言生成代码（Flutter）
     ├── common/
     └── adhoc/
@@ -88,14 +88,14 @@ languages:
   go:
     enabled: true
     output_dir: "gen/go"
-    package_prefix: "impirrot/gen/go"
+    package_prefix: "youlingserv/gen/go"
     options:
       paths: "source_relative"
       plugins:
         - protoc-gen-go
         - protoc-gen-go-grpc
     extra_args:
-      - "--go_opt=Mcommon/common.proto=impirrot/gen/go/common"
+      - "--go_opt=Mcommon/common.proto=youlingserv/gen/go/common"
   
   # Python 语言配置
   python:
@@ -114,7 +114,7 @@ languages:
   java:
     enabled: false  # 默认关闭
     output_dir: "gen/java"
-    package: "com.impirrot"
+    package: "com.youlingserv"
     options:
       multiple_files: true
       plugins:
@@ -163,7 +163,7 @@ languages:
   kotlin:
     enabled: false
     output_dir: "gen/kotlin"
-    package: "com.impirrot"
+    package: "com.youlingserv"
     options:
       plugins:
         - protoc-gen-kotlin
@@ -232,17 +232,17 @@ post_process:
 
 ```
 # Go
-go get github.com/impirrot/proto-gen/go
+go get github.com/youlingserv/proto-gen/go
 
 # Python
-pip install impirrot-proto
+pip install youlingserv-proto
 
 # TypeScript
-npm install @impirrot/proto-gen
+npm install @youlingserv/proto-gen
 
 # Java
-maven: com.impirrot:proto-gen
+maven: com.youlingserv:proto-gen
 
 # Dart
-pub get impirrot_proto
+pub get youlingserv_proto
 ```

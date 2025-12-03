@@ -8,11 +8,11 @@ import (
 	"google.golang.org/grpc/reflection"
 	"gorm.io/gorm"
 
-	"impirrot/internal/adhoc/routes"
-	grpcMiddleware "impirrot/internal/shared/middleware/grpc"
-	"impirrot/pkg/config"
-	"impirrot/pkg/database"
-	"impirrot/pkg/log"
+	"youlingserv/internal/adhoc/routes"
+	grpcMiddleware "youlingserv/internal/shared/middleware/grpc"
+	"youlingserv/pkg/config"
+	"youlingserv/pkg/database"
+	"youlingserv/pkg/log"
 )
 
 func main() {
@@ -58,7 +58,7 @@ func initDatabase() (*gorm.DB, error) {
 		Port:     3306,
 		User:     "root",
 		Password: "password",
-		Database: "impirrot",
+		Database: "youlingserv",
 	})
 }
 

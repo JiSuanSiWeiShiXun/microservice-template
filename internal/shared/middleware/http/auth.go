@@ -3,9 +3,10 @@ package http
 import (
 	"context"
 
+	"youlingserv/internal/shared/auth"
+
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/common/utils"
-	"impirrot/internal/shared/auth"
 )
 
 func AuthMiddleware(checker *auth.PermissionChecker) app.HandlerFunc {

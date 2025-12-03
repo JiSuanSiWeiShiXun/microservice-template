@@ -4,8 +4,9 @@ import (
 	"context"
 	"time"
 
+	"youlingserv/pkg/observability"
+
 	"github.com/cloudwego/hertz/pkg/app"
-	"impirrot/pkg/observability"
 )
 
 func MetricsMiddleware() app.HandlerFunc {

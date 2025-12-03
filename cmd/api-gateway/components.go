@@ -1,8 +1,8 @@
 package main
 
 import (
-	"impirrot/internal/api/handler"
-	"impirrot/internal/shared/auth"
+	"youlingserv/internal/api/handler"
+	"youlingserv/internal/shared/auth"
 )
 
 // APIComponents 聚合 API 服务的所有组件

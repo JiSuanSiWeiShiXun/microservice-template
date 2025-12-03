@@ -5,7 +5,7 @@ import (
 
 	"gorm.io/gorm"
 
-	"impirrot/internal/shared/model"
+	"youlingserv/internal/shared/model"
 )
 
 type UserDAL struct {

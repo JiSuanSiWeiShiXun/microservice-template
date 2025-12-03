@@ -1,8 +1,8 @@
 package main
 
 import (
-	"impirrot/internal/adhoc/service"
-	"impirrot/internal/shared/auth"
+	"youlingserv/internal/adhoc/service"
+	"youlingserv/internal/shared/auth"
 )
 
 // AdhocComponents 聚合 Adhoc 服务的所有组件

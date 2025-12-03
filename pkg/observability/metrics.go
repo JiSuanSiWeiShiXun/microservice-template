@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"impirrot/pkg/log"
+	"youlingserv/pkg/log"
 )
 
 func RecordHTTPMetrics(method, path string, statusCode int, duration time.Duration) {

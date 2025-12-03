@@ -6,8 +6,8 @@ import (
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/common/utils"
 
-	"impirrot/internal/api/biz"
-	"impirrot/pkg/dto"
+	"youlingserv/internal/api/biz"
+	"youlingserv/pkg/dto"
 )
 
 type HelloHandler struct {

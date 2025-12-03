@@ -2,7 +2,7 @@ syntax = "proto3";
 package common;
 
 // 多语言支持：Go 代码生成到 gen/go 目录
-option go_package = "impirrot/gen/go/common;common";
+option go_package = "youlingserv/gen/go/common;common";
 
 import "google/protobuf/any.proto";
 

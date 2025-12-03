@@ -6,7 +6,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	"impirrot/pkg/observability"
+	"youlingserv/pkg/observability"
 )
 
 func MetricsInterceptor() grpc.UnaryServerInterceptor {

@@ -3,7 +3,7 @@ package dal
 import (
 	"context"
 
-	"impirrot/internal/adhoc/dal/model"
+	"youlingserv/internal/adhoc/dal/model"
 )
 
 // AdhocDALInterface Adhoc 数据访问层接口
