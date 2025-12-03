@@ -2,5 +2,5 @@
 .DS_Store
 .vscode/
 
-adhoc-server
-api-gateway
+/adhoc-server
+/api-gateway
