@@ -1,0 +1,28 @@
+services:
+  youlingserv-grpc:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    image: youlingserv:latest
+    container_name: youlingserv-grpc
+    restart: unless-stopped
+    ports:
+      - "50051:50051"  # gRPC
+    environment:
+      - APP_ENV=production
+      - LOG_LEVEL=info
+    volumes:
+      - ../config.yml:/app/config.yml:ro
+    depends_on: []
+    networks:
+      - youlingserv-network
+    healthcheck:
+      test: ["CMD", "sh", "-c", "nc -z localhost 50051 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  youlingserv-network:
+    driver: bridge
